@@ -19,12 +19,12 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
             flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            text-align: center;
             height: 100vh;
-            padding-top: 50px;
+            position: relative; /* Make body relative for absolute footer */
         }
 
         .page {
@@ -36,6 +36,7 @@
         .card {
             padding: 30px;
             color: #e0e0e0;
+            z-index: 1; /* Ensure the card is above the footer */
         }
 
         .card p {
@@ -53,8 +54,8 @@
             background-color: #FFCB05;
             background-image: url('cokor.png');
             background-repeat: repeat-x;
-            position: absolute;
-            bottom: 0;
+            position: absolute; /* Position footer absolutely */
+            bottom: 0; /* Stick to the bottom */
             left: 0;
         }
     </style>
@@ -73,9 +74,8 @@
                 <strong>Steksa Network.</strong>
             </p>
         </div>
-        <div class="cokor"></div>
-
     </div>
+    <div class="cokor"></div>
 
 </body>
 
