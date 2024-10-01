@@ -1,41 +1,82 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>SNC</title>
+    <title>Input Data Pelanggan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
         }
-        h1 {
+
+        .card {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.5rem;
             text-align: center;
-            margin: 20px 0;
+            padding: 1rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
         }
-        .iframe-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* Aspect ratio 16:9 */
-            overflow: hidden;
+
+        .form-group label {
+            font-weight: bold;
         }
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
             border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .btn-submit:hover {
+            background-color: #0056b3;
+        }
+
+        .disabled-link {
+            pointer-events: none;
+            opacity: 0.6;
         }
     </style>
 </head>
-<body>
-    <div class="iframe-container">
-        <iframe src="https://form.jotform.com/242704899521060" title="Embedded JotForm"></iframe>
-    </div>
-    <script type="text/javascript" src="https://form.jotform.com/jsform/242704899521060"></script>
-</body>
-</html>
 
+<body>
+
+    <div class="card">
+        <div class="card-header">
+            <strong>SNC</strong> <br>
+            Semua dimulai dari sini
+        </div>
+        <div class="card-body">
+            <p>Silahkan tekan tombol <strong>Tambah Data</strong> untuk menambah dan atau update data Pelanggan.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSccBbGNmHS0K51vg8mR-2NQzi9nzCP46LaTlmy8mZxhVnwngQ/viewform"
+                class="btn btn-submit">Tambah Data</a>
+            <br><br>
+            <a href="#" class="btn btn-submit disabled-link">Lihat Data</a>
+        </div>
+        <p class="text-center">Copyright &copy; 2024 SNC</p>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
