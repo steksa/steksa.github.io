@@ -36,21 +36,16 @@
 
     <script>
         function getIPAddress() {
-            fetch('https://api.ipify.org?format=json')
+            fetch('http://ip-api.com/json/')
                 .then(response => response.json())
                 .then(data => {
-                    const ip = data.ip;
-                    fetch(`https://ipwhois.io/json/${ip}`)
-                        .then(response => response.json())
-                        .then(info => {
-                            document.getElementById('result').innerHTML = `
-                                <p><strong>Your IP:</strong> ${info.ip}</p>
-                                <p><strong>City:</strong> ${info.city}</p>
-                                <p><strong>Region:</strong> ${info.region}</p>
-                                <p><strong>Country:</strong> ${info.country}</p>
-                                <p><strong>ISP:</strong> ${info.isp}</p>
-                            `;
-                        });
+                    document.getElementById('result').innerHTML = `
+                        <p><strong>Your IP:</strong> ${data.query}</p>
+                        <p><strong>City:</strong> ${data.city}</p>
+                        <p><strong>Region:</strong> ${data.regionName}</p>
+                        <p><strong>Country:</strong> ${data.country}</p>
+                        <p><strong>ISP:</strong> ${data.isp}</p>
+                    `;
                 })
                 .catch(err => {
                     document.getElementById('result').innerHTML = `<p style="color: red;">Error: Unable to fetch data.</p>`;
