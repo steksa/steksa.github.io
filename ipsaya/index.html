@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check IP Address</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            margin: 20px auto;
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Check Your IP Address</h1>
+        <p>Click the button to see your IP address and details:</p>
+        <button onclick="getIPAddress()">Check IP</button>
+        <div id="result" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        function getIPAddress() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    const ip = data.ip;
+                    fetch(`https://ipwhois.io/json/${ip}`)
+                        .then(response => response.json())
+                        .then(info => {
+                            document.getElementById('result').innerHTML = `
+                                <p><strong>Your IP:</strong> ${info.ip}</p>
+                                <p><strong>City:</strong> ${info.city}</p>
+                                <p><strong>Region:</strong> ${info.region}</p>
+                                <p><strong>Country:</strong> ${info.country}</p>
+                                <p><strong>ISP:</strong> ${info.isp}</p>
+                            `;
+                        });
+                })
+                .catch(err => {
+                    document.getElementById('result').innerHTML = `<p style="color: red;">Error: Unable to fetch data.</p>`;
+                });
+        }
+    </script>
+</body>
+</html>
